@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project in Progress | Asaf Tzur Engineering</title>
+  <meta name="description" content="Project page currently under development." />
+
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --text: #1f1f1f;
+      --muted: #666;
+      --card: #ffffff;
+      --accent: #111111;
+      --max-width: 900px;
+      --radius: 18px;
+      --shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      background: rgba(247, 247, 245, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      z-index: 1000;
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .back-link {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 90px 0 40px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 700px;
+    }
+
+    .section {
+      padding: 20px 0 60px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,0.05);
+      padding: 34px;
+    }
+
+    .status {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #ecece8;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .card h2 {
+      font-size: 1.35rem;
+      margin-bottom: 14px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .actions {
+      margin-top: 24px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+
+    .btn-secondary:hover {
+      background: #ecece8;
+    }
+
+    .site-footer {
+      padding: 26px 0 40px;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 0;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+
+      .card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="logo">A.T. Engineering</a>
+      <a href="index.html" class="back-link">← Back to portfolio</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Project Page in Progress</h1>
+        <p>
+          This project is currently being documented. A full case study, images,
+          and technical details will be added soon.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="card">
+          <div class="status">Work in Progress</div>
+
+          <h2>Content Under Preparation</h2>
+
+          <p>
+            This page is not yet complete. The project itself is real, but the
+            presentation material is still being organized and prepared.
+          </p>
+
+          <p>
+            The final page will include project background, design challenges,
+            engineering approach, development process, and selected results.
+          </p>
+
+          <p>
+            If this project is relevant to your interests, feel free to contact me
+            directly for more information in the meantime.
+          </p>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="index.html">Back to Projects</a>
+            <a class="btn btn-secondary" href="mailto:yourname@email.com">Contact</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Asaf Tzur Engineering. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

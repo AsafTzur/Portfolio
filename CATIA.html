@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Title | A.T. Engineering</title>
+  <meta name="description" content="Project details for A.T. Engineering." />
+
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --text: #1f1f1f;
+      --muted: #666;
+      --card: #ffffff;
+      --accent: #111111;
+      --line: #dddddd;
+      --max-width: 1200px;
+      --radius: 18px;
+      --shadow: 0 8px 30px rgba(0,0,0,0.08);
+      --code-bg: #111111;
+      --code-text: #eaeaea;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      background: rgba(247, 247, 245, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      z-index: 1000;
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .back-link {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+    }
+
+    .project-hero {
+      padding: 72px 0 34px;
+    }
+
+    .project-title {
+      font-size: clamp(2rem, 4vw, 3.7rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    .project-subtitle {
+      max-width: 850px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .section {
+      padding: 24px 0 42px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,0.05);
+      overflow: hidden;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .gallery-item {
+      background: var(--card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-caption {
+      padding: 14px 16px 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .text-panel,
+    .code-panel {
+      padding: 26px;
+    }
+
+    .panel-title {
+      font-size: 1.3rem;
+      margin-bottom: 14px;
+    }
+
+    .text-panel p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .text-panel p:last-child {
+      margin-bottom: 0;
+    }
+
+    .code-panel {
+      background: var(--code-bg);
+      color: var(--code-text);
+    }
+
+    .code-panel .panel-title {
+      color: white;
+    }
+
+    .code-wrap {
+      overflow-x: auto;
+      border-radius: 12px;
+    }
+
+    .code-wrap pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: Consolas, Monaco, "Courier New", monospace;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .meta-box {
+      padding: 20px;
+    }
+
+    .meta-label {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .meta-value {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .site-footer {
+      padding: 30px 0 40px;
+      color: var(--muted);
+      border-top: 1px solid rgba(0,0,0,0.08);
+      margin-top: 30px;
+    }
+
+    @media (max-width: 900px) {
+      .gallery-grid,
+      .content-grid,
+      .meta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item img {
+        height: 260px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .project-hero {
+        padding-top: 54px;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 0;
+      }
+
+      .gallery-item img {
+        height: 220px;
+      }
+
+      .text-panel,
+      .code-panel {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="logo">A.T. Engineering</a>
+      <a href="index.html" class="back-link">← Back to portfolio</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="project-hero">
+      <div class="container">
+        <h1 class="project-title">CATIA Automation</h1>
+        <p class="project-subtitle">
+As model complexity increases, manual workflows in CATIA become time-consuming and error-prone.
+Automation ensures consistency, repeatability, and control across large feature trees.
+It reduces engineering time while minimizing human error in design and downstream processes.
+Ultimately, it enables faster iterations and more scalable, production-ready workflows.
+		</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="meta-grid">
+          <div class="card meta-box">
+            <div class="meta-label">Field</div>
+            <div class="meta-value">Mechanical Engineering</div>
+          </div>
+          <div class="card meta-box">
+            <div class="meta-label">Tools</div>
+            <div class="meta-value">C#, CATIA, Visual-Studio</div>
+          </div>
+          <div class="card meta-box">
+            <div class="meta-label">Focus</div>
+            <div class="meta-value">CAD/CAM Automation</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="gallery-grid">
+          <figure class="gallery-item">
+            <img src="media/catia1.png" alt="Project image 1">
+            <figcaption class="gallery-caption">Entity Tree Example</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="content-grid">
+          <div class="card text-panel">
+            <h2 class="panel-title">Project Overview</h2>
+            <p>
+			When working with complex models containing a large number of features, maintaining a consistent and 
+			systematic naming convention becomes critical—especially when transitioning into CAM processes.
+			I developed a script to automate entity naming within CATIA, ensuring structured and reliable 
+			model organization. This solution saves significant engineering time and enables efficient model 
+			updates without the need for repetitive manual renaming.
+          </div>
+
+          <div class="card code-panel">
+            <h2 class="panel-title">Code Snippet</h2>
+            <div class="code-wrap">
+              <pre><code>
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+
+using INFITF;
+using MECMOD;
+using PARTITF;
+using ProductStructureTypeLib;
+using NavigatorTypeLib;
+using HybridShapeTypeLib; 
+
+namespace CatiaNameChanging
+{
+    public partial class Form1 : Form
+    {
+        public INFITF.Application catia;
+        public int o_from;
+        public int o_to;
+        public int n_from;
+        public String oldname;
+        public String gsa;
+        public String newname;
+
+        public int a1 = 51;
+        public int del = 30;
+        public int a12 ;
+        public int a2 = 135;
+        public int a22 = 162;
+        public int from = 1251;
+
+        public int g1 = 41;
+        public Form1()
+        {
+            InitializeComponent();
+
+            if (DateTime.UtcNow.Year != 2025)
+                button1.Enabled = false;  
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //autorun();   // specific autorun
+            //autorun2(); // special run mode
+            o_from = int.Parse(textBox3.Text);
+            o_to = int.Parse(textBox4.Text);
+            n_from = int.Parse(textBox7.Text);
+
+           
+            gsa = textBox1.Text;
+            oldname = textBox2.Text;
+            newname = textBox5.Text;
+
+ 
+            catia = (INFITF.Application)System.Runtime.InteropServices.Marshal.GetActiveObject("Catia.Application");
+            PartDocument pd = (PartDocument)catia.ActiveDocument;
+            Part pt = pd.Part;
+
+ 
+            HybridBodies hybridBodies1 = pt.HybridBodies;
+            HybridBody hybridBody1 = hybridBodies1.Item("Entity_Type2_NUM_s");
+            HybridBodies hybridBodies2 = hybridBody1.HybridBodies;
+            HybridBody hybridBody2 = hybridBodies2.Item(gsa);
+            HybridBodies hybridBodies3 = hybridBody2.HybridBodies;
+
+            int z = n_from;
+            for (int i = o_from; i  o_to+1; i++)
+            {
+                HybridShape hybridBody3 = hybridBody2.HybridShapes.Item(String.Concat(oldname, i.ToString()));
+                hybridBody3.set_Name(String.Concat(newname, z.ToString()));
+                z++;
+            }
+        }
+
+
+        public void autorun()
+        {
+            if(g1%2!=0)
+
+            {
+                textBox1.Text = String.Concat("Entity_NUM_.", g1.ToString());
+                textBox5.Text = textBox2.Text = "Entity_Type2_NUM__";
+                textBox3.Text = a1.ToString();
+                textBox4.Text = a12.ToString();
+                textBox7.Text = from.ToString();
+                g1++;
+                from = from+del;
+            }
+
+            else
+
+            {
+                textBox1.Text = String.Concat("Entity_NUM_.", g1.ToString());
+                textBox5.Text = textBox2.Text = "Entity_Type2_NUM__";
+                textBox3.Text = a2.ToString();
+                textBox4.Text = a22.ToString();
+                textBox7.Text = from.ToString();
+                g1++;
+                from = from + del;
+
+            }
+        }
+
+        public void autorun2()
+        {
+                textBox1.Text = String.Concat("Entity_NUM_.", g1.ToString());
+                textBox5.Text = textBox2.Text = "Entity_Type2_NUM__";
+                textBox3.Text = a1.ToString();
+                textBox4.Text = (a1+del-1).ToString();
+                textBox7.Text = from.ToString();
+            
+                g1++;
+                a1 = a1 + del;
+                from = from + del;
+        }
+     }
+}
+			  </code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 A.T. Engineering. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
