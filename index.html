@@ -206,13 +206,13 @@
       background: #ddd;
     }
 
-    .project-image-wrap img,
-    .project-image-wrap video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+	.project-image-wrap > img:not(.play-badge),
+	.project-image-wrap > video {
+	  width: 100%;
+	  height: 100%;
+	  object-fit: cover;
+	  display: block;
+	}
 
     .project-video {
       width: 100%;
@@ -357,7 +357,16 @@
 	  font-weight: 600;
 	  line-height: 1;
 	}
-	
+		.play-badge {
+	  position: absolute;
+	  top: 10px;
+	  left: 10px;
+	  width: 34px;
+	  height: 34px;
+	  z-index: 2;
+	  pointer-events: none;   /* important: doesn't block tap/click */
+	  opacity: 0.9;
+	}
   </style>
 </head>
 <body>
@@ -414,6 +423,7 @@
 				<div class="project-image-wrap">
 				  <video class="project-video" muted loop playsinline preload="metadata" poster="Media/opt.png">
 					<source src="Media/opt_small.mp4" type="video/mp4"></video>
+					<img class="play-badge" src="media/playblack.png" alt="">
 					<div class="project-image-title">Lattice Optimization</div>
 				</div>
 				
@@ -487,6 +497,7 @@
             <div class="project-image-wrap">
               <video class="project-video" muted loop playsinline preload="metadata" poster="Media/fem.png">
                 <source src="Media/fem.mp4" type="video/mp4">
+				<img class="play-badge" src="media/playblack.png" alt="">
               </video>
               <div class="project-image-title">FEM Code</div>
             </div>
@@ -502,8 +513,9 @@
 			            <div class="project-image-wrap">
               <video class="project-video" muted loop playsinline preload="metadata" poster="Media/winglet.png">
                 <source src="Media/winglet.mp4" type="video/mp4">
+				<img class="play-badge" src="media/playblack.png" alt="">
               </video>
-              <div class="project-image-title">Winglet Design (patented)</div>
+              <div class="project-image-title">Winglet Design</div>
             </div>
             <div class="project-content">
               <p>
@@ -521,6 +533,7 @@
             <div class="project-image-wrap">
               <video class="project-video" muted loop playsinline preload="metadata" poster="Media/comp.png">
                 <source src="Media/comp_small.mp4" type="video/mp4"></video>
+				<img class="play-badge" src="media/playblack.png" alt="">
               <div class="project-image-title">Composite Structures</div>
             
 			</div>
